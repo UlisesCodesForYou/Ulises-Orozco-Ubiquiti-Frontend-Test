@@ -9,28 +9,25 @@ import {
     rem,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
+import data from '@content/navigation-links.json';
 import useStyles from './NavigationBar.styles';
-// import { MantineLogo } from '@mantine/ds';
+import { NavigationInfo } from './NavigationBar.d';
 
 const HEADER_HEIGHT = rem(60);
-
-// interface HeaderResponsiveProps {
-//     links: { link: string; label: string }[];
-// }
-
+const navData = data?.navBarInfo as NavigationInfo[];
 export const NavigationBar = () => {
     const [opened, { toggle, close }] = useDisclosure(false);
-    const [active, setActive] = useState(links[0].link);
+    const [active, setActive] = useState(navData[0].path);
     const { classes, cx } = useStyles();
 
-    const items = links.map((link) => (
+    const navItems = navData.map((link) => (
         <a
-            key={link.label}
-            href={link.link}
-            className={cx(classes.link, { [classes.linkActive]: active === link.link })}
-            onClick={(event) => {
+          key={link.id}
+          href={link.path}
+          className={cx(classes.link, { [classes.linkActive]: active === link.path })}
+          onClick={(event) => {
                 event.preventDefault();
-                setActive(link.link);
+                setActive(link.path);
                 close();
             }}
         >
@@ -43,7 +40,7 @@ export const NavigationBar = () => {
             <Container className={classes.header}>
                 {/*<MantineLogo size={28} />*/}
                 <Group spacing={5} className={classes.links}>
-                    {items}
+                    {navItems}
                 </Group>
 
                 <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
@@ -51,13 +48,11 @@ export const NavigationBar = () => {
                 <Transition transition="pop-top-right" duration={200} mounted={opened}>
                     {(styles) => (
                         <Paper className={classes.dropdown} withBorder style={styles}>
-                            {items}
+                            {navItems}
                         </Paper>
                     )}
                 </Transition>
             </Container>
         </Header>
     );
-}
-
-
+};

@@ -1,23 +1,23 @@
 {
   "navBarInfo": [
     {
-      "id": "features",
-      "path": "#",
-      "label": "Features"
-    },
-    {
-      "id": "products",
-      "path": "#",
-      "label": "Products"
-    },
-    {
       "id": "devices",
       "path": "/devices",
       "label": "Devices"
     },
     {
+      "id": "features",
+      "path": "/features",
+      "label": "Features"
+    },
+    {
+      "id": "products",
+      "path": "/products",
+      "label": "Products"
+    },
+    {
       "id": "pricing",
-      "path": "#",
+      "path": "/pricing",
       "label": "Products"
     }
   ]
