@@ -1,6 +1,7 @@
 {
   "footerLinks": [
     {
+      "id": "company",
       "title": "Company",
       "links": {
         "label": "Careers",
@@ -8,6 +9,7 @@
       }
     },
     {
+      "id": "in_the_news",
       "title": "In the News",
       "links": {
         "label": "Blog",
@@ -15,6 +17,7 @@
       }
     },
     {
+      "id": "training",
       "title": "Training",
       "links": {
         "label": "Courses",
@@ -22,10 +25,19 @@
       }
     },
     {
+      "id": "buy_now",
       "title": "Buy Now",
       "links": {
         "label": "Store",
         "link": "https://store.ui.com/"
+      }
+    },
+    {
+      "id": "tools",
+      "title": "Tools",
+      "links": {
+        "label": "WiFiman",
+        "link": "https://wifiman.com/"
       }
     }
   ]

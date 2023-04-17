@@ -14,6 +14,7 @@ import useStyles from './NavigationBar.styles';
 import { NavigationInfo } from './NavigationBar.d';
 
 const HEADER_HEIGHT = rem(60);
+
 const navData = data?.navBarInfo as NavigationInfo[];
 export const NavigationBar = () => {
     const [opened, { toggle, close }] = useDisclosure(false);
