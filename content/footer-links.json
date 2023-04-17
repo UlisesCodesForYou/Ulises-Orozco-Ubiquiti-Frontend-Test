@@ -1,0 +1,32 @@
+{
+  "footerLinks": [
+    {
+      "title": "Company",
+      "links": {
+        "label": "Careers",
+        "link": "https://careers.ui.com/"
+      }
+    },
+    {
+      "title": "In the News",
+      "links": {
+        "label": "Blog",
+        "link": "https://blog.ui.com/"
+      }
+    },
+    {
+      "title": "Training",
+      "links": {
+        "label": "Courses",
+        "link": "https://www.ui.com/training/"
+      }
+    },
+    {
+      "title": "Buy Now",
+      "links": {
+        "label": "Store",
+        "link": "https://store.ui.com/"
+      }
+    }
+  ]
+}
