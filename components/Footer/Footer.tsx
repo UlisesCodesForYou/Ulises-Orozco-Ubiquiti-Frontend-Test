@@ -22,7 +22,7 @@ export const FooterLinks = () => {
     return (
         <div className={classes.footer}>
             <Container className={classes.inner}>
-                <Image src='Ubiquity-Logo.png' alt="Ubiquity Logo" width={40} height="auto" />
+                <Image src="Ubiquity-Logo.png" alt="Ubiquity Logo" width={40} height="auto" />
                 <Group className={classes.links}>{items}</Group>
             </Container>
         </div>

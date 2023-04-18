@@ -7,6 +7,7 @@ import {
     Paper,
     Transition,
     rem,
+    Image,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import data from '@content/navigation-links.json';
@@ -39,7 +40,7 @@ export const NavigationBar = () => {
     return (
         <Header height={HEADER_HEIGHT} mb={120} className={classes.root}>
             <Container className={classes.header}>
-                {/*<MantineLogo size={28} />*/}
+                <Image src="Ubiquity-Logo.png" alt="Ubiquity Logo" width={50} height="auto"/>
                 <Group spacing={5} className={classes.links}>
                     {navItems}
                 </Group>
