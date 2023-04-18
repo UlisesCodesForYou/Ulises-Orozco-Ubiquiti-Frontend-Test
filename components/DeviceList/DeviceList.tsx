@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { ScrollArea, Table } from '@mantine/core';
+import { ScrollArea, Table, Image } from '@mantine/core';
 import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import useStyles from './DeviceList.styles';
 
 // interface TableScrollAreaProps {
@@ -13,26 +14,31 @@ export const DeviceList = () => {
     const { isLoading, error, data } = useQuery({
         queryKey: ['listData'],
         queryFn: () =>
-            fetch('https://static.ui.com/fingerprint/ui/public.json').then(
-                (res) => res.json(),
-            ),
+            axios
+                .get('https://static.ui.com/fingerprint/ui/public.json')
+                .then((res) => res.data),
     });
 
-    if (isLoading) return 'Loading...';
+    if (isLoading) {
+        return <h1>Loading....</h1>;
+    }
 
-    if (error) return 'An error has occurred!';
+    if (error) {
+        return <h1>An error has occurred!</h1>;
+    }
 
-    const rows = data.map((row: any) => (
-        <tr key={row.name}>
-            <td>{row.name}</td>
-            <td>{row.email}</td>
-            <td>{row.company}</td>
+    const { devices } = data;
+    const rows = devices.map((row: any) => (
+        <tr key={row.id}>
+            <td><Image src="https://static.ui.com/fingerprint/ui/icons/06a25b40-ef1f-463a-82d9-13236866ea3d_257x257.png" width={row.icon.resolutions[0][0]} height={row.icon.resolutions[0][1]} /></td>
+            <td>{row.line.name}</td>
+            <td>{row.product.name}</td>
         </tr>
     ));
 
     return (
         <ScrollArea h={300} onScrollPositionChange={({ y }) => setScrolled(y !== 0)}>
-            <Table miw={700}>
+            <Table highlightOnHover>
                 <thead className={cx(classes.header, { [classes.scrolled]: scrolled })}>
                 <tr>
                     <th>123 Devices</th>
