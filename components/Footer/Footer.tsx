@@ -1,4 +1,4 @@
-import { Anchor, Container, Group } from '@mantine/core';
+import {Anchor, Container, Group, Image} from '@mantine/core';
 // import { MantineLogo } from '@mantine/ds';
 import data from '@content/footer-links.json';
 import useStyles from './Footer.styles';
@@ -22,7 +22,7 @@ export const FooterLinks = () => {
     return (
         <div className={classes.footer}>
             <Container className={classes.inner}>
-                {/*<MantineLogo size={28} />*/}
+                <Image src='Ubiquity-Logo.png' alt="Ubiquity Logo" width={40} height="auto" />
                 <Group className={classes.links}>{items}</Group>
             </Container>
         </div>
