@@ -26,11 +26,11 @@ export const DeviceList = () => {
     if (error) {
         return <h1>An error has occurred!</h1>;
     }
-
+    // className={classes.imageContainer}
     const { devices } = data;
     const rows = devices.map((row: any) => (
         <tr key={row.id}>
-            <td><Image src="https://static.ui.com/fingerprint/ui/icons/06a25b40-ef1f-463a-82d9-13236866ea3d_257x257.png" width={row.icon.resolutions[0][0]} height={row.icon.resolutions[0][1]} /></td>
+            <td><Image src={`https://static.ui.com/fingerprint/ui/icons/${row.icon.id}_${row.icon.resolutions[0][0]}x${row.icon.resolutions[0][1]}.png`} alt="" width={row.icon.resolutions[0][0]} height={row.icon.resolutions[0][1]} /></td>
             <td>{row.line.name}</td>
             <td>{row.product.name}</td>
         </tr>

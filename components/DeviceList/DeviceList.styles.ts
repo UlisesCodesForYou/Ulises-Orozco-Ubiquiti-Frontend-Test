@@ -1,6 +1,10 @@
 import { createStyles, rem } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
+    imageContainer: {
+        zIndex: 8,
+    },
+
     header: {
         position: 'sticky',
         top: 0,
@@ -21,7 +25,7 @@ const useStyles = createStyles((theme) => ({
 
     scrolled: {
         boxShadow: theme.shadows.sm,
-    },
+    }
 }));
 
 export default useStyles;
