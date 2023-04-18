@@ -1,8 +1,20 @@
 import { createStyles, rem } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
-    imageContainer: {
-        zIndex: 8,
+    scrollArea: {
+        height: 600,
+        marginTop: -80,
+        marginBottom: -30,
+
+        [theme.fn.largerThan('sm')]: {
+            paddingLeft: '5%',
+            paddingRight: '5%',
+        },
+
+        [theme.fn.largerThan('md')]: {
+            paddingLeft: '10%',
+            paddingRight: '10%',
+        },
     },
 
     header: {
@@ -10,6 +22,7 @@ const useStyles = createStyles((theme) => ({
         top: 0,
         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
         transition: 'box-shadow 150ms ease',
+        zIndex: 10,
 
         '&::after': {
             content: '""',
