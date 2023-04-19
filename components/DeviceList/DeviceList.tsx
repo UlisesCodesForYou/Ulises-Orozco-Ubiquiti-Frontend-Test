@@ -39,6 +39,7 @@ export const DeviceList = () => {
     ));
 
     return (
+        // eslint-disable-next-line max-len
         <ScrollArea className={classes.scrollArea} onScrollPositionChange={({ y }) => setScrolled(y !== 0)}>
             <Table highlightOnHover>
                 <thead className={cx(classes.header, { [classes.scrolled]: scrolled })}>
