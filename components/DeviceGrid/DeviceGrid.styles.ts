@@ -22,11 +22,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   nameContainer: {
-    marginTop: '10px',
-
-    [theme.fn.largerThan('md')]: {
-      marginTop: '48px',
-    },
+    marginTop: '15px',
   },
 
   scrollArea: {
