@@ -4,4 +4,5 @@ export interface FooterInfo {
     links: {
         label: string;
         link: string
-    };
+    }
+}
