@@ -4,10 +4,6 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import useStyles from './DeviceList.styles';
 
-// interface TableScrollAreaProps {
-//     data: { name: string; email: string; company: string }[];
-// }
-
 export const DeviceList = () => {
     const { classes, cx } = useStyles();
     const [scrolled, setScrolled] = useState<boolean>(false);

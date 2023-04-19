@@ -6,9 +6,9 @@
       "label": "Devices"
     },
     {
-      "id": "features",
-      "path": "/features",
-      "label": "Features"
+      "id": "device_grid",
+      "path": "/device_grid",
+      "label": "Device Grid"
     },
     {
       "id": "products",
@@ -16,9 +16,9 @@
       "label": "Products"
     },
     {
-      "id": "pricing",
+      "id": "ulises_orozco",
       "path": "/pricing",
-      "label": "Products"
+      "label": "Ulises Orozco"
     }
   ]
 }
