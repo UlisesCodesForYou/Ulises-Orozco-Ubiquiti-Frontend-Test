@@ -22,13 +22,16 @@ export const DeviceGrid = () => {
   const { devices } = data;
 
   const grid = devices.map((grd: any) => (
-    <Card key={grd.id} p="md" radius="md" component="a" href="#" className={classes.card}>
+    <Card key={grd.id} radius="md" className={classes.card}>
       <div className={classes.imageContainer}>
-        <AspectRatio ratio={5 / 4}>
+        {/*<AspectRatio ratio={5 / 4}>*/}
+        {/* */}
+        {/*</AspectRatio>*/}
+        <Card.Section>
           <Image
             src={`https://static.ui.com/fingerprint/ui/icons/${grd.icon.id}_${grd.icon.resolutions[2][0]}x${grd.icon.resolutions[2][1]}.png`}
           />
-        </AspectRatio>
+        </Card.Section>
       </div>
       <Text size="md" transform="uppercase" weight={700} className={classes.nameContainer}>
         {grd.product.name}
