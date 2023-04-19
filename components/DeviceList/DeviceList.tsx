@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import useStyles from './DeviceList.styles';
 
+
 export const DeviceList = () => {
     const { classes, cx } = useStyles();
     const [scrolled, setScrolled] = useState<boolean>(false);
