@@ -5,6 +5,7 @@ import {
     QueryClientProvider,
 } from '@tanstack/react-query';
 import DeviceList from '@components/DeviceList';
+import DeviceGrid from '@components/DeviceGrid';
 
 const queryClient = new QueryClient();
 export default function HomePage() {
@@ -13,6 +14,7 @@ export default function HomePage() {
             <QueryClientProvider client={queryClient}>
                 <NavigationBar />
                 <DeviceList />
+                <DeviceGrid />
             </QueryClientProvider>
 
         </>

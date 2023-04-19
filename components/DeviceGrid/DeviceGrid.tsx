@@ -1,4 +1,4 @@
-import { AspectRatio, Card, Container, Image, SimpleGrid, Text } from '@mantine/core';
+import { AspectRatio, Card, Container, Image, SimpleGrid, Text, ScrollArea } from '@mantine/core';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import useStyles from './DeviceGrid.styles';
@@ -38,10 +38,12 @@ export const DeviceGrid = () => {
     ));
 
     return (
+        <ScrollArea className={classes.scrollArea}>
         <Container py="xl">
-            <SimpleGrid cols={5} breakpoints={[{ maxWidth: 'sm', cols: 2 }]}>
+            <SimpleGrid cols={5} breakpoints={[{ maxWidth: 'sm', cols: 1 }, { maxWidth: 'md', cols: 2 }]}>
                 {grid}
             </SimpleGrid>
         </Container>
+        </ScrollArea>
     );
 };
