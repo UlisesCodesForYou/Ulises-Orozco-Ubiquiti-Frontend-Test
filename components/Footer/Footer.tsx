@@ -1,5 +1,4 @@
 import { Anchor, Container, Group, Image } from '@mantine/core';
-// import { MantineLogo } from '@mantine/ds';
 import data from '@content/footer-links.json';
 import useStyles from './Footer.styles';
 import { FooterInfo } from './Footer.d';
@@ -7,7 +6,8 @@ import { FooterInfo } from './Footer.d';
 const footerData = data?.footerLinks as FooterInfo[];
 export const FooterLinks = () => {
   const { classes } = useStyles();
-  const items = footerData.map((link) => (
+
+  const items: JSX.Element[] = footerData.map((link: FooterInfo) => (
     <Anchor<'a'>
       color="dimmed"
       key={link.id}

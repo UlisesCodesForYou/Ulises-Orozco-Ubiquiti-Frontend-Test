@@ -1,7 +1,8 @@
-import { AspectRatio, Card, Container, Image, ScrollArea, SimpleGrid, Text } from '@mantine/core';
+import { Card, Container, Image, ScrollArea, SimpleGrid, Text } from '@mantine/core';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import useStyles from './DeviceGrid.styles';
+import { GridInfo } from './DeviceGrid.d';
 
 export const DeviceGrid = () => {
   const { classes } = useStyles();
@@ -18,10 +19,11 @@ export const DeviceGrid = () => {
   if (error) {
     return <h1>An error has occurred!</h1>;
   }
-
   const { devices } = data;
 
-  const grid = devices.map((grd: any) => (
+  const gridData = devices as GridInfo[];
+
+  const grid: JSX.Element[] = gridData.map((grd: GridInfo) => (
     <Card key={grd.id} radius="md" className={classes.card}>
       <div className={classes.imageContainer}>
         {/*<AspectRatio ratio={5 / 4}>*/}
