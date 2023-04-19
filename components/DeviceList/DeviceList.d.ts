@@ -1,4 +1,4 @@
-export interface GridInfo {
+export interface ListInfo {
     id: string,
     product: {
         name: string,

@@ -3,6 +3,7 @@ import { Image, ScrollArea, Table } from '@mantine/core';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import useStyles from './DeviceList.styles';
+import { ListInfo } from './DeviceList.d';
 
 export const DeviceList = () => {
   const { classes, cx } = useStyles();
@@ -22,7 +23,10 @@ export const DeviceList = () => {
   }
 
   const { devices } = data;
-  const rows = devices.map((row: any) => (
+
+  const listData = devices as ListInfo[];
+
+  const rows: JSX.Element[] = listData.map((row: ListInfo) => (
     <tr key={row.id}>
       <td>
         <Image
