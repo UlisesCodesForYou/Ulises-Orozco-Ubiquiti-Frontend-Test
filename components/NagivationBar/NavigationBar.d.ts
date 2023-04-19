@@ -1,5 +1,5 @@
 export interface NavigationInfo {
-    id: string,
-    path: string,
-    label: string,
-};
+  id: string;
+  path: string;
+  label: string;
+}

@@ -1,4 +1,4 @@
-import {Anchor, Container, Group, Image} from '@mantine/core';
+import { Anchor, Container, Group, Image } from '@mantine/core';
 // import { MantineLogo } from '@mantine/ds';
 import data from '@content/footer-links.json';
 import useStyles from './Footer.styles';
@@ -6,25 +6,25 @@ import { FooterInfo } from './Footer.d';
 
 const footerData = data?.footerLinks as FooterInfo[];
 export const FooterLinks = () => {
-    const { classes } = useStyles();
-    const items = footerData.map((link) => (
-        <Anchor<'a'>
-          color="dimmed"
-          key={link.id}
-          href={link.links.link}
-          onClick={(event) => event.preventDefault()}
-          size="sm"
-        >
-            {link.links.label}
-        </Anchor>
-    ));
+  const { classes } = useStyles();
+  const items = footerData.map((link) => (
+    <Anchor<'a'>
+      color="dimmed"
+      key={link.id}
+      href={link.links.link}
+      onClick={(event) => event.preventDefault()}
+      size="sm"
+    >
+      {link.links.label}
+    </Anchor>
+  ));
 
-    return (
-        <div className={classes.footer}>
-            <Container className={classes.inner}>
-                <Image src="Ubiquity-Logo.png" alt="Ubiquity Logo" width={40} height="auto" />
-                <Group className={classes.links}>{items}</Group>
-            </Container>
-        </div>
-    );
+  return (
+    <div className={classes.footer}>
+      <Container className={classes.inner}>
+        <Image src="Ubiquity-Logo.png" alt="Ubiquity Logo" width={40} height="auto" />
+        <Group className={classes.links}>{items}</Group>
+      </Container>
+    </div>
+  );
 };

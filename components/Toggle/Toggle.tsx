@@ -4,11 +4,7 @@ import DeviceGrid from '@components/DeviceGrid';
 import DeviceList from '@components/DeviceList';
 
 export const Toggle = () => {
-    const [value, toggle] = useToggle([<DeviceGrid />, <DeviceList />]);
+  const [value, toggle] = useToggle([<DeviceGrid />, <DeviceList />]);
 
-    return (
-        <Button onClick={() => toggle()}>
-            {value}
-        </Button>
-    );
+  return <Button onClick={() => toggle()}>{value}</Button>;
 };
