@@ -11,20 +11,17 @@ export default function HomePage() {
 
   const toggle = () => {
     setIsGrid((prev) => !prev);
-
-    return (
-      <>
-        <Button onClick={toggle}>Toggle View</Button>
-        {isGrid ? <DeviceGrid /> : <DeviceList />}
-      </>
-    );
+    console.debug('test');
   };
+
   return (
     <>
       <QueryClientProvider client={queryClient}>
         <NavigationBar />
         {/*<DeviceList />*/}
-        <DeviceGrid />
+        <Button onClick={() => toggle()}>Toggle View</Button>
+        {isGrid ? <DeviceList /> : <DeviceGrid />}
+        {/*<DeviceGrid />*/}
       </QueryClientProvider>
     </>
   );
