@@ -2,10 +2,11 @@ import DeviceList from '@components/DeviceList';
 import DeviceGrid from '@components/DeviceGrid';
 import NavigationBar from '@components/NagivationBar';
 import { useState } from 'react';
-import { ActionIcon, Flex, Container } from '@mantine/core';
+import { ActionIcon, Container, Flex } from '@mantine/core';
 import { IconLayoutGrid, IconList } from '@tabler/icons-react';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
+import FilterDropdown from '@components/FilterDropdown';
 
 export default function HomePage() {
   const [isGrid, setIsGrid] = useState(true);
@@ -49,6 +50,7 @@ export default function HomePage() {
           <ActionIcon onClick={() => toggle()} color="blue">
             <IconList />
           </ActionIcon>
+          <FilterDropdown />
         </Flex>
         {!isGrid ? <DeviceList listData={devices} /> : <DeviceGrid gridData={devices} />}
       </Container>
