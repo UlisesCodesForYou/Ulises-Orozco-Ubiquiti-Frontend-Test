@@ -5,6 +5,7 @@ import { GridInfo } from './DeviceGrid.d';
 interface DeviceGridProps {
   gridData: GridInfo[];
 }
+
 export const DeviceGrid = (props: DeviceGridProps) => {
   const { classes } = useStyles();
 

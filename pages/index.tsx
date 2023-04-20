@@ -2,7 +2,8 @@ import DeviceList from '@components/DeviceList';
 import DeviceGrid from '@components/DeviceGrid';
 import NavigationBar from '@components/NagivationBar';
 import { useState } from 'react';
-import { Button } from '@mantine/core';
+import { ActionIcon } from '@mantine/core';
+import { IconLayoutGrid, IconList } from '@tabler/icons-react';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 
@@ -33,8 +34,13 @@ export default function HomePage() {
     <>
       <NavigationBar />
       {/*<DeviceList />*/}
-      <Button onClick={() => toggle()}>Toggle View</Button>
-      {isGrid ? <DeviceList listData={devices} /> : <DeviceGrid gridData={devices} />}
+      <ActionIcon onClick={() => toggle()} color="blue">
+        <IconLayoutGrid />
+      </ActionIcon>
+      <ActionIcon onClick={() => toggle()} color="blue">
+        <IconList />
+      </ActionIcon>
+      {!isGrid ? <DeviceList listData={devices} /> : <DeviceGrid gridData={devices} />}
       {/*<DeviceGrid />*/}
     </>
   );
