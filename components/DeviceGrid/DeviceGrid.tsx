@@ -1,4 +1,14 @@
-import { Card, Container, Image, ScrollArea, SimpleGrid, Text } from '@mantine/core';
+import {
+  Badge,
+  Button,
+  Card,
+  Container,
+  Group,
+  Image,
+  ScrollArea,
+  SimpleGrid,
+  Text,
+} from '@mantine/core';
 import useStyles from './DeviceGrid.styles';
 import { GridInfo } from './DeviceGrid.d';
 
@@ -21,6 +31,7 @@ export const DeviceGrid = (props: DeviceGridProps) => {
         <Card.Section>
           <Image
             src={`https://static.ui.com/fingerprint/ui/icons/${grd.icon.id}_${grd.icon.resolutions[2][0]}x${grd.icon.resolutions[2][1]}.png`}
+            height={160}
           />
         </Card.Section>
       </div>
