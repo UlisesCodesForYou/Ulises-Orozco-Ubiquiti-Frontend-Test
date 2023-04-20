@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Image, ScrollArea, Table } from '@mantine/core';
+import { Image, ScrollArea, Table, Drawer, Button, Group } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import useStyles from './DeviceList.styles';
@@ -8,6 +9,7 @@ import { ListInfo } from './DeviceList.d';
 export const DeviceList = () => {
   const { classes, cx } = useStyles();
   const [scrolled, setScrolled] = useState<boolean>(false);
+  const [opened, { open, close }] = useDisclosure(false);
   const { isLoading, error, data } = useQuery({
     queryKey: ['listData'],
     queryFn: () =>
