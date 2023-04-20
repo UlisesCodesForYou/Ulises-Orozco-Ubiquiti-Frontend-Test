@@ -6,16 +6,6 @@
       "label": "Devices"
     },
     {
-      "id": "device_grid",
-      "path": "/device_grid",
-      "label": "Device Grid"
-    },
-    {
-      "id": "products",
-      "path": "/products",
-      "label": "Products"
-    },
-    {
       "id": "ulises_orozco",
       "path": "/pricing",
       "label": "Ulises Orozco"
