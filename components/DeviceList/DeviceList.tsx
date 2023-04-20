@@ -3,7 +3,11 @@ import { Image, ScrollArea, Table } from '@mantine/core';
 import useStyles from './DeviceList.styles';
 import { ListInfo } from './DeviceList.d';
 
-export const DeviceList = (props: any) => {
+interface DeviceListProps {
+  listData: ListInfo[];
+}
+
+export const DeviceList = (props: DeviceListProps) => {
   const { classes, cx } = useStyles();
   const [scrolled, setScrolled] = useState<boolean>(false);
 

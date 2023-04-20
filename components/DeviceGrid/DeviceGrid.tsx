@@ -2,7 +2,10 @@ import { Card, Container, Image, ScrollArea, SimpleGrid, Text } from '@mantine/c
 import useStyles from './DeviceGrid.styles';
 import { GridInfo } from './DeviceGrid.d';
 
-export const DeviceGrid = (props: any) => {
+interface DeviceGridProps {
+  gridData: GridInfo[];
+}
+export const DeviceGrid = (props: DeviceGridProps) => {
   const { classes } = useStyles();
 
   const gridProps = props.gridData;
