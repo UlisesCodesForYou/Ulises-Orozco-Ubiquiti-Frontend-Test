@@ -1,27 +1,12 @@
 import { Card, Container, Image, ScrollArea, SimpleGrid, Text } from '@mantine/core';
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
 import useStyles from './DeviceGrid.styles';
 import { GridInfo } from './DeviceGrid.d';
 
-export const DeviceGrid = () => {
+export const DeviceGrid = (props: any) => {
   const { classes } = useStyles();
-  const { isLoading, error, data } = useQuery({
-    queryKey: ['gridData'],
-    queryFn: () =>
-      axios.get('https://static.ui.com/fingerprint/ui/public.json').then((res) => res.data),
-  });
 
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
-
-  if (error) {
-    return <h1>An error has occurred!</h1>;
-  }
-  const { devices } = data;
-
-  const gridData = devices as GridInfo[];
+  const gridProps = props.gridData;
+  const gridData = gridProps as GridInfo[];
 
   const grid: JSX.Element[] = gridData.map((grd: GridInfo) => (
     <Card key={grd.id} radius="md" className={classes.card}>

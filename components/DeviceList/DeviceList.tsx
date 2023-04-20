@@ -1,32 +1,14 @@
 import { useState } from 'react';
-import { Image, ScrollArea, Table, Drawer, Button, Group } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import { Image, ScrollArea, Table } from '@mantine/core';
 import useStyles from './DeviceList.styles';
 import { ListInfo } from './DeviceList.d';
 
-export const DeviceList = () => {
+export const DeviceList = (props: any) => {
   const { classes, cx } = useStyles();
   const [scrolled, setScrolled] = useState<boolean>(false);
-  const [opened, { open, close }] = useDisclosure(false);
-  const { isLoading, error, data } = useQuery({
-    queryKey: ['listData'],
-    queryFn: () =>
-      axios.get('https://static.ui.com/fingerprint/ui/public.json').then((res) => res.data),
-  });
 
-  if (isLoading) {
-    return <h1>Loading....</h1>;
-  }
-
-  if (error) {
-    return <h1>An error has occurred!</h1>;
-  }
-
-  const { devices } = data;
-
-  const listData = devices as ListInfo[];
+  const listProps = props.listData;
+  const listData = listProps as ListInfo[];
 
   const rows: JSX.Element[] = listData.map((row: ListInfo) => (
     <tr key={row.id}>
