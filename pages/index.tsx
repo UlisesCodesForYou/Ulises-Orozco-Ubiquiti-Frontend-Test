@@ -10,6 +10,7 @@ import FilterDropdown from '@components/FilterDropdown';
 
 export default function HomePage() {
   const [isGrid, setIsGrid] = useState(true);
+  const [isClicked, setIsClicked] = useState(undefined);
   const { isLoading, error, data } = useQuery({
     queryKey: ['productData'],
     queryFn: () =>
@@ -29,6 +30,13 @@ export default function HomePage() {
   const toggle = () => {
     setIsGrid((prev) => !prev);
   };
+
+  // The function below function has to be passed into the components.
+  const itemClicked = () => {
+    setIsClicked(isClicked);
+  };
+
+  // I also have to create an event that checks if a user has clicked on a given item on the list or grid. That has to go down into the components and back up here.
 
   return (
     <>
@@ -52,7 +60,11 @@ export default function HomePage() {
           </ActionIcon>
           <FilterDropdown />
         </Flex>
-        {!isGrid ? <DeviceList listData={devices} /> : <DeviceGrid gridData={devices} />}
+        {!isGrid ? (
+          <DeviceList listData={devices} />
+        ) : (
+          <DeviceGrid gridData={devices} setIsClicked={itemClicked} />
+        )}
       </Container>
     </>
   );
