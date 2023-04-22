@@ -2,7 +2,7 @@ import DeviceList from '@components/DeviceList';
 import DeviceGrid from '@components/DeviceGrid';
 import NavigationBar from '@components/NagivationBar';
 import { useState } from 'react';
-import { ActionIcon, Container, Flex } from '@mantine/core';
+import { ActionIcon, Container, CSSObject, Flex, MantineTheme } from '@mantine/core';
 import { IconLayoutGrid, IconList } from '@tabler/icons-react';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
@@ -10,7 +10,7 @@ import FilterDropdown from '@components/FilterDropdown';
 
 export default function HomePage() {
   const [isGrid, setIsGrid] = useState(true);
-  const [isClicked, setIsClicked] = useState(undefined);
+  // const [isClicked, setIsClicked] = useState(undefined);
   const { isLoading, error, data } = useQuery({
     queryKey: ['productData'],
     queryFn: () =>
@@ -31,12 +31,21 @@ export default function HomePage() {
     setIsGrid((prev) => !prev);
   };
 
-  // The function below function has to be passed into the components.
-  const itemClicked = () => {
-    setIsClicked(isClicked);
-  };
+  // Margin Adjuster for the placement of the grid, list, and filter buttons
+  const marginAdjuster = (theme: MantineTheme): CSSObject => ({
+    marginTop: -90,
+    marginRight: 115,
 
-  // I also have to create an event that checks if a user has clicked on a given item on the list or grid. That has to go down into the components and back up here.
+    [theme.fn.largerThan('sm')]: {
+      marginTop: -90,
+      marginRight: 60,
+    },
+
+    [theme.fn.largerThan('md')]: {
+      marginTop: -90,
+      marginRight: 190,
+    },
+  });
 
   return (
     <>
@@ -49,8 +58,7 @@ export default function HomePage() {
           direction="row"
           wrap="nowrap"
           m={120}
-          mt={-90}
-          mr={160}
+          sx={marginAdjuster}
         >
           <ActionIcon onClick={() => toggle()} color="blue">
             <IconLayoutGrid />
@@ -60,11 +68,7 @@ export default function HomePage() {
           </ActionIcon>
           <FilterDropdown />
         </Flex>
-        {!isGrid ? (
-          <DeviceList listData={devices} />
-        ) : (
-          <DeviceGrid gridData={devices} setIsClicked={itemClicked} />
-        )}
+        {!isGrid ? <DeviceList listData={devices} /> : <DeviceGrid gridData={devices} />}
       </Container>
     </>
   );

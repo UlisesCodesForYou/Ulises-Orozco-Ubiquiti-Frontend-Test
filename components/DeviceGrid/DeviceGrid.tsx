@@ -12,7 +12,7 @@ import { GridInfo } from './DeviceGrid.d';
 export const DeviceGrid = (props: any) => {
   const { classes } = useStyles();
   const [opened, { open, close }] = useDisclosure(false);
-  const [selectedDevice, setSelectedDevice] = useState(undefined);
+  const [selectedDevice, setSelectedDevice] = useState(null);
 
   const gridProps = props.gridData;
   const gridData = gridProps as GridInfo[];
