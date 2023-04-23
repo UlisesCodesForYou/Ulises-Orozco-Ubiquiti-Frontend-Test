@@ -4,18 +4,17 @@ import { useState } from 'react';
 import useStyles from './DeviceGrid.styles';
 import { GridInfo } from './DeviceGrid.d';
 
-// interface DeviceGridProps {
-//   gridData: GridInfo[];
-//   clickData: GridInfo[];
-// }
+interface DeviceGridProps {
+  gridData: GridInfo[];
+}
 
-export const DeviceGrid = (props: any) => {
+export const DeviceGrid = (props: DeviceGridProps) => {
   const { classes } = useStyles();
   const [opened, { open, close }] = useDisclosure(false);
-  const [selectedDevice, setSelectedDevice] = useState(null);
+  const [selectedDevice, setSelectedDevice] = useState(undefined);
 
-  const gridProps = props.gridData;
-  const gridData = gridProps as GridInfo[];
+  const gridProps: GridInfo[] = props.gridData;
+  const gridData: GridInfo[] = gridProps as GridInfo[];
 
   const modalOpen = () => open();
 

@@ -2,7 +2,14 @@ import DeviceList from '@components/DeviceList';
 import DeviceGrid from '@components/DeviceGrid';
 import NavigationBar from '@components/NagivationBar';
 import { useState } from 'react';
-import { ActionIcon, Container, CSSObject, Flex, MantineTheme } from '@mantine/core';
+import {
+  ActionIcon,
+  Container,
+  CSSObject,
+  Flex,
+  MantineTheme,
+  LoadingOverlay,
+} from '@mantine/core';
 import { IconLayoutGrid, IconList } from '@tabler/icons-react';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
@@ -10,7 +17,6 @@ import FilterDropdown from '@components/FilterDropdown';
 
 export default function HomePage() {
   const [isGrid, setIsGrid] = useState(true);
-  // const [isClicked, setIsClicked] = useState(undefined);
   const { isLoading, error, data } = useQuery({
     queryKey: ['productData'],
     queryFn: () =>
@@ -18,11 +24,11 @@ export default function HomePage() {
   });
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <LoadingOverlay visible overlayBlur={2} loaderProps={{ size: 'xl' }} />;
   }
 
   if (error) {
-    return <h1>An error has occurred! </h1>;
+    return <p>An error has occurred!</p>;
   }
 
   const { devices } = data;
@@ -33,7 +39,7 @@ export default function HomePage() {
 
   // Margin Adjuster for the placement of the grid, list, and filter buttons
   const marginAdjuster = (theme: MantineTheme): CSSObject => ({
-    marginTop: -90,
+    marginTop: -90, //This numbers represents pixels. So, this is -90px.  The same applies to the rest of the number values.
     marginRight: 115,
 
     [theme.fn.largerThan('sm')]: {
