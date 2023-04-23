@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Container, Grid, Image, Modal, ScrollArea, SimpleGrid, Table, Text } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
 import useStyles from './DeviceList.styles';
 import { ListInfo } from './DeviceList.d';
-import { useDisclosure } from '@mantine/hooks';
 
 interface DeviceListProps {
   listData: ListInfo[];
@@ -12,13 +12,14 @@ export const DeviceList = (props: DeviceListProps) => {
   const { classes, cx } = useStyles();
   const [scrolled, setScrolled] = useState<boolean>(false);
   const [opened, { open, close }] = useDisclosure(false);
-  const [selectedDevice, setSelectedDevice] = useState(undefined);
+  const [selectedDevice, setSelectedDevice] = useState<object>({});
 
   const listProps = props.listData;
   const listData = listProps as ListInfo[];
 
   const modalOpen = () => open();
 
+  //This is the data used to generate the row list.
   const rows: JSX.Element[] = listData.map((row: ListInfo) => (
     <tr
       key={row.id}
@@ -58,6 +59,8 @@ export const DeviceList = (props: DeviceListProps) => {
           <tbody>{rows}</tbody>
         </Table>
       </ScrollArea>
+
+      {/*The data within the modal does not appear: I.E: product details and information*/}
       <Modal opened={opened} onClose={close}>
         <Container>
           <SimpleGrid cols={2}>

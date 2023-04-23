@@ -11,13 +11,14 @@ interface DeviceGridProps {
 export const DeviceGrid = (props: DeviceGridProps) => {
   const { classes } = useStyles();
   const [opened, { open, close }] = useDisclosure(false);
-  const [selectedDevice, setSelectedDevice] = useState(undefined);
+  const [selectedDevice, setSelectedDevice] = useState<object>({});
 
   const gridProps: GridInfo[] = props.gridData;
   const gridData: GridInfo[] = gridProps as GridInfo[];
 
   const modalOpen = () => open();
 
+  //This is the card holds the data tha is displayed in the cards in the scroll area.
   const grid: JSX.Element[] = gridData.map((grd: GridInfo) => (
     <Card
       key={grd.id}
@@ -61,6 +62,8 @@ export const DeviceGrid = (props: DeviceGridProps) => {
           </SimpleGrid>
         </Container>
       </ScrollArea>
+
+      {/*The data within the modal does not appear: I.E: product details and information.*/}
       <Modal opened={opened} onClose={close}>
         <Container>
           <SimpleGrid cols={2}>
