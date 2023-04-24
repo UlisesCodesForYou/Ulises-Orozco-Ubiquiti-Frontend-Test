@@ -1,4 +1,4 @@
-import { Card, Container, Grid, Image, Modal, ScrollArea, SimpleGrid, Text } from '@mantine/core';
+import { Card, Container, Grid, Image, ScrollArea, SimpleGrid, Text, Drawer } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { useState } from 'react';
 import useStyles from './DeviceGrid.styles';
@@ -16,7 +16,7 @@ export const DeviceGrid = (props: DeviceGridProps) => {
   const gridProps: GridInfo[] = props.gridData;
   const gridData: GridInfo[] = gridProps as GridInfo[];
 
-  const modalOpen = () => open();
+  const drawerOpen = () => open();
 
   //This is the card holds the data tha is displayed in the cards in the scroll area.
   const grid: JSX.Element[] = gridData.map((item: GridInfo) => (
@@ -27,14 +27,14 @@ export const DeviceGrid = (props: DeviceGridProps) => {
       component="button"
       onClick={() => {
         setSelectedDevice(item);
-        modalOpen();
+        drawerOpen();
       }}
     >
       <div className={classes.imageContainer}>
         <Card.Section>
           <Image
-            src={`https://static.ui.com/fingerprint/ui/icons/${item.icon.id}_${item.icon.resolutions[2][0]}x${item.icon.resolutions[2][1]}.png`}
-            height={160}
+            src={`https://static.ui.com/fingerprint/ui/icons/${item.icon.id}_${item.icon.resolutions[4][0]}x${item.icon.resolutions[4][1]}.png`}
+            height="auto"
           />
         </Card.Section>
       </div>
@@ -63,19 +63,19 @@ export const DeviceGrid = (props: DeviceGridProps) => {
         </Container>
       </ScrollArea>
 
-      {/*The data within the modal does not appear: I.E: product details and information.*/}
-      <Modal opened={opened} onClose={close}>
+      {/*The Product details are held within this drawer once the user clicks the item.*/}
+      <Drawer opened={opened} onClose={close} position="right" size="100%">
         {selectedDevice && (
           <Container>
             <SimpleGrid cols={2}>
               <Grid>
-                <Grid.Col>
+                <Grid.Col span={6}>
                   <Image
-                    src={`https://static.ui.com/fingerprint/ui/icons/${selectedDevice.icon.id}_${selectedDevice.icon.resolutions[3][0]}x${selectedDevice.icon.resolutions[3][1]}.png`}
-                    height={160}
+                    src={`https://static.ui.com/fingerprint/ui/icons/${selectedDevice.icon.id}_${selectedDevice.icon.resolutions[4][0]}x${selectedDevice.icon.resolutions[4][1]}.png`}
+                    height="auto"
                   />
                 </Grid.Col>
-                <Grid.Col>
+                <Grid.Col span={6}>
                   <Text size="md" weight={700} className={classes.nameContainer}>
                     {selectedDevice.line.name}
                   </Text>
@@ -87,7 +87,7 @@ export const DeviceGrid = (props: DeviceGridProps) => {
             </SimpleGrid>
           </Container>
         )}
-      </Modal>
+      </Drawer>
     </>
   );
 };

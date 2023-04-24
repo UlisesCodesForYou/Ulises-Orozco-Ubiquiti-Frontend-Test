@@ -9,5 +9,14 @@ export interface GridInfo {
     icon: {
         id: string,
         resolutions: [number, number][]
-    }
+    },
+    shortnames: [
+        string
+    ],
+    numberofports: number,
+    ng: {
+        maxPower: number
+        axSpeedMegabitsPerSecond: number
+    },
+
 }
