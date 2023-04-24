@@ -1,4 +1,14 @@
-import { Card, Container, Grid, Image, ScrollArea, SimpleGrid, Text, Drawer } from '@mantine/core';
+import {
+  Card,
+  Container,
+  Drawer,
+  Grid,
+  Image,
+  ScrollArea,
+  SimpleGrid,
+  Table,
+  Text,
+} from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { useState } from 'react';
 import useStyles from './DeviceGrid.styles';
@@ -76,12 +86,65 @@ export const DeviceGrid = (props: DeviceGridProps) => {
                   />
                 </Grid.Col>
                 <Grid.Col span={6}>
-                  <Text size="md" weight={700} className={classes.nameContainer}>
-                    {selectedDevice.line.name}
-                  </Text>
-                  <Text className={classes.title} mt={5}>
-                    {selectedDevice.product.name}
-                  </Text>
+                  <Table sx={{ minWidth: 500 }}>
+                    <tbody>
+                      <tr key={selectedDevice.icon.id}>
+                        <td>Product Line</td>
+                        <td>
+                          <Text className={classes.title}>{selectedDevice.line.name}</Text>
+                        </td>
+                      </tr>
+                      <tr key={selectedDevice.icon.id}>
+                        <td>ID</td>
+                        <td>
+                          <Text className={classes.title}>{selectedDevice.line.id}</Text>
+                        </td>
+                      </tr>
+                      <tr key={selectedDevice.icon.id}>
+                        <td>Name</td>
+                        <td>
+                          <Text className={classes.title}>{selectedDevice.product.name}</Text>
+                        </td>
+                      </tr>
+                      <tr key={selectedDevice.icon.id}>
+                        <td>Short name</td>
+                        <td>
+                          <Text className={classes.title}>{selectedDevice.shortnames}</Text>
+                        </td>
+                      </tr>
+                      {selectedDevice?.unifi?.network?.radios?.na?.maxPower && (
+                        <tr key={selectedDevice.icon.id}>
+                          <td>Max Power</td>
+                          <td>
+                            <Text className={classes.title}>
+                              {selectedDevice.unifi.network.radios.na.maxPower}W
+                            </Text>
+                          </td>
+                        </tr>
+                      )}
+                      {selectedDevice?.unifi?.network?.radios?.na?.maxSpeedMegabitsPerSecond && (
+                        <tr key={selectedDevice.icon.id}>
+                          <td>Speed</td>
+                          <td>
+                            <Text className={classes.title}>
+                              {selectedDevice.unifi.network.radios.na.maxSpeedMegabitsPerSecond}{' '}
+                              Mbps
+                            </Text>
+                          </td>
+                        </tr>
+                      )}
+                      {selectedDevice?.unifi?.network?.numberOfPorts && (
+                        <tr key={selectedDevice.icon.id}>
+                          <td>Number of Ports</td>
+                          <td>
+                            <Text className={classes.title}>
+                              {selectedDevice.unifi.network.numberOfPorts}
+                            </Text>
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </Table>
                 </Grid.Col>
               </Grid>
             </SimpleGrid>
@@ -91,3 +154,14 @@ export const DeviceGrid = (props: DeviceGridProps) => {
     </>
   );
 };
+//
+// <Text size="md" weight={700} className={classes.title}>
+//     {selectedDevice.line.id}
+// </Text>
+// <Text className={classes.title}>{selectedDevice.product.name}</Text>
+// <Text className={classes.title}>{selectedDevice.shortnames}</Text>
+// {/*  <Text className={classes.title} mt={5}>*/}
+// {/*      {selectedDevice.unifi.network.radios.na.maxPower}*/}
+// {/*  </Text>*/}
+// <Text className={classes.title}>{selectedDevice.shortnames}</Text>
+// <Text className={classes.title}>{selectedDevice.shortnames}</Text>

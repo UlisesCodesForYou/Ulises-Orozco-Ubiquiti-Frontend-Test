@@ -4,19 +4,27 @@ export interface GridInfo {
         name: string,
     },
     line: {
+        id: string,
         name: string
     },
     icon: {
         id: string,
         resolutions: [number, number][]
     },
+
+    unifi: {
+        network: {
+            numberOfPorts: number,
+            radios: {
+                na: {
+                    maxPower: number
+                    maxSpeedMegabitsPerSecond: number
+                },
+            }
+        }
+    },
+    maxPower: number,
     shortnames: [
         string
     ],
-    numberofports: number,
-    ng: {
-        maxPower: number
-        axSpeedMegabitsPerSecond: number
-    },
-
 }
