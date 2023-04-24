@@ -11,7 +11,7 @@ interface DeviceGridProps {
 export const DeviceGrid = (props: DeviceGridProps) => {
   const { classes } = useStyles();
   const [opened, { open, close }] = useDisclosure(false);
-  const [selectedDevice, setSelectedDevice] = useState<object>({});
+  const [selectedDevice, setSelectedDevice] = useState<GridInfo | null>(null);
 
   const gridProps: GridInfo[] = props.gridData;
   const gridData: GridInfo[] = gridProps as GridInfo[];
@@ -19,30 +19,30 @@ export const DeviceGrid = (props: DeviceGridProps) => {
   const modalOpen = () => open();
 
   //This is the card holds the data tha is displayed in the cards in the scroll area.
-  const grid: JSX.Element[] = gridData.map((grd: GridInfo) => (
+  const grid: JSX.Element[] = gridData.map((item: GridInfo) => (
     <Card
-      key={grd.id}
+      key={item.id}
       radius="md"
       className={classes.card}
       component="button"
       onClick={() => {
-        setSelectedDevice(selectedDevice);
+        setSelectedDevice(item);
         modalOpen();
       }}
     >
       <div className={classes.imageContainer}>
         <Card.Section>
           <Image
-            src={`https://static.ui.com/fingerprint/ui/icons/${grd.icon.id}_${grd.icon.resolutions[2][0]}x${grd.icon.resolutions[2][1]}.png`}
+            src={`https://static.ui.com/fingerprint/ui/icons/${item.icon.id}_${item.icon.resolutions[2][0]}x${item.icon.resolutions[2][1]}.png`}
             height={160}
           />
         </Card.Section>
       </div>
       <Text size="md" transform="uppercase" weight={700} className={classes.nameContainer}>
-        {grd.product.name}
+        {item.product.name}
       </Text>
       <Text className={classes.title} mt={5} color="dimmed">
-        {grd.line.name}
+        {item.line.name}
       </Text>
     </Card>
   ));
@@ -65,26 +65,28 @@ export const DeviceGrid = (props: DeviceGridProps) => {
 
       {/*The data within the modal does not appear: I.E: product details and information.*/}
       <Modal opened={opened} onClose={close}>
-        <Container>
-          <SimpleGrid cols={2}>
-            <Grid>
-              <Grid.Col>
-                <Image
-                  src={`https://static.ui.com/fingerprint/ui/icons/${setSelectedDevice}_${setSelectedDevice}x${setSelectedDevice}`}
-                  height={160}
-                />
-              </Grid.Col>
-              <Grid.Col>
-                <Text size="md" weight={700} className={classes.nameContainer}>
-                  {setSelectedDevice.name}
-                </Text>
-                <Text className={classes.title} mt={5}>
-                  {setSelectedDevice.name}
-                </Text>
-              </Grid.Col>
-            </Grid>
-          </SimpleGrid>
-        </Container>
+        {selectedDevice && (
+          <Container>
+            <SimpleGrid cols={2}>
+              <Grid>
+                <Grid.Col>
+                  <Image
+                    src={`https://static.ui.com/fingerprint/ui/icons/${selectedDevice.icon.id}_${selectedDevice.icon.resolutions[3][0]}x${selectedDevice.icon.resolutions[3][1]}.png`}
+                    height={160}
+                  />
+                </Grid.Col>
+                <Grid.Col>
+                  <Text size="md" weight={700} className={classes.nameContainer}>
+                    {selectedDevice.line.name}
+                  </Text>
+                  <Text className={classes.title} mt={5}>
+                    {selectedDevice.product.name}
+                  </Text>
+                </Grid.Col>
+              </Grid>
+            </SimpleGrid>
+          </Container>
+        )}
       </Modal>
     </>
   );

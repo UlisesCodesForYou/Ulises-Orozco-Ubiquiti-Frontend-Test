@@ -16,7 +16,7 @@ import { useQuery } from '@tanstack/react-query';
 import FilterDropdown from '@components/FilterDropdown';
 
 export default function HomePage() {
-  const [isGrid, setIsGrid] = useState(true);
+  const [isGrid, setIsGrid] = useState<boolean>(true);
 
   const { isLoading, error, data } = useQuery({
     queryKey: ['productData'],
@@ -40,7 +40,7 @@ export default function HomePage() {
 
   // Margin Adjuster was created to adjust the placement of the grid, list, and filter buttons.
   const marginAdjuster = (theme: MantineTheme): CSSObject => ({
-    marginTop: -90, //This numbers represents pixels. So, this is -90px.  The same applies to the rest of the number values.
+    marginTop: -90, //This number represents pixels. So, this is -90px.  The same applies to the rest of the number values.
     marginRight: 115,
 
     [theme.fn.largerThan('sm')]: {
@@ -75,7 +75,7 @@ export default function HomePage() {
           </ActionIcon>
           <FilterDropdown />
         </Flex>
-        {!isGrid ? <DeviceList listData={devices} /> : <DeviceGrid gridData={devices} />}
+        {isGrid ? <DeviceList listData={devices} /> : <DeviceGrid gridData={devices} />}
       </Container>
     </>
   );
