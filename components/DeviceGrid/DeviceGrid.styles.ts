@@ -25,6 +25,23 @@ const useStyles = createStyles((theme) => ({
     marginTop: '15px',
   },
 
+  productTitle: {
+    textAlign: 'center',
+    marginLeft: '25%',
+  },
+
+  drawerContainer: {
+    position: 'fixed',
+    top: '50%',
+    left: '15%',
+    marginTop: '-200px',
+  },
+
+  detailContainer: {
+    display: 'flex',
+    margin: 'auto',
+  },
+
   scrollArea: {
     height: 600,
     marginTop: -80,

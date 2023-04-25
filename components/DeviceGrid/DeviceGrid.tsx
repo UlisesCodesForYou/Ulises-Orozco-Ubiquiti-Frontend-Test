@@ -77,20 +77,20 @@ export const DeviceGrid = (props: DeviceGridProps) => {
       {/*The Product details are held within this drawer once the user clicks the item.*/}
       <Drawer opened={opened} onClose={close} position="right" size="100%">
         {selectedDevice && (
-          <Container>
-            <Title order={1} size="h3" align="center" mb={10} color="dimmed">
+          <Container className={classes.drawerContainer}>
+            <Title order={1} size="h3" mb={10} color="dimmed" className={classes.productTitle}>
               {selectedDevice.product.name}
             </Title>
-            <SimpleGrid cols={2}>
-              <Container>
+            <Container>
+              <SimpleGrid cols={2} breakpoints={[{ minWidth: 'sm', cols: 1 }]}>
                 <Grid>
-                  <Grid.Col span={6}>
+                  <Grid.Col lg={6}>
                     <Image
                       src={`https://static.ui.com/fingerprint/ui/icons/${selectedDevice.icon.id}_${selectedDevice.icon.resolutions[4][0]}x${selectedDevice.icon.resolutions[4][1]}.png`}
                       height="auto"
                     />
                   </Grid.Col>
-                  <Grid.Col span={6}>
+                  <Grid.Col lg={6} className={classes.detailContainer}>
                     <Table sx={{ minWidth: 500 }}>
                       <tbody>
                         <tr key={selectedDevice.icon.id}>
@@ -152,22 +152,11 @@ export const DeviceGrid = (props: DeviceGridProps) => {
                     </Table>
                   </Grid.Col>
                 </Grid>
-              </Container>
-            </SimpleGrid>
+              </SimpleGrid>
+            </Container>
           </Container>
         )}
       </Drawer>
     </>
   );
 };
-//
-// <Text size="md" weight={700} className={classes.title}>
-//     {selectedDevice.line.id}
-// </Text>
-// <Text className={classes.title}>{selectedDevice.product.name}</Text>
-// <Text className={classes.title}>{selectedDevice.shortnames}</Text>
-// {/*  <Text className={classes.title} mt={5}>*/}
-// {/*      {selectedDevice.unifi.network.radios.na.maxPower}*/}
-// {/*  </Text>*/}
-// <Text className={classes.title}>{selectedDevice.shortnames}</Text>
-// <Text className={classes.title}>{selectedDevice.shortnames}</Text>
