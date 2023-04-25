@@ -1,6 +1,18 @@
 import { useState } from 'react';
-import { Container, Grid, Image, Modal, ScrollArea, SimpleGrid, Table, Text } from '@mantine/core';
+import {
+  ActionIcon,
+  Container,
+  Drawer,
+  Grid,
+  Image,
+  ScrollArea,
+  SimpleGrid,
+  Table,
+  Text,
+  Title,
+} from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
+import { IconChevronDown } from '@tabler/icons';
 import useStyles from './DeviceList.styles';
 import { ListInfo } from './DeviceList.d';
 
@@ -12,7 +24,7 @@ export const DeviceList = (props: DeviceListProps) => {
   const { classes, cx } = useStyles();
   const [scrolled, setScrolled] = useState<boolean>(false);
   const [opened, { open, close }] = useDisclosure(false);
-  const [selectedDevice, setSelectedDevice] = useState<object>({});
+  const [selectedDevice, setSelectedDevice] = useState<ListInfo | null>(null);
 
   const listProps = props.listData;
   const listData = listProps as ListInfo[];
@@ -24,7 +36,7 @@ export const DeviceList = (props: DeviceListProps) => {
     <tr
       key={row.id}
       onClick={() => {
-        setSelectedDevice(selectedDevice);
+        setSelectedDevice(row);
         modalOpen();
       }}
     >
@@ -60,27 +72,97 @@ export const DeviceList = (props: DeviceListProps) => {
         </Table>
       </ScrollArea>
 
-      {/*The data within the modal does not appear: I.E: product details and information*/}
-      <Modal opened={opened} onClose={close}>
-        <Container>
-          <SimpleGrid cols={2}>
-            <Grid>
-              <Grid.Col>
-                <Image
-                  src={`https://static.ui.com/fingerprint/ui/icons/${setSelectedDevice}_${setSelectedDevice}x${setSelectedDevice}`}
-                  height={160}
-                />
-              </Grid.Col>
-              <Grid.Col>
-                <Text size="md" weight={700}>
-                  {setSelectedDevice.name}
-                </Text>
-                <Text mt={5}>{setSelectedDevice.name}</Text>
-              </Grid.Col>
-            </Grid>
-          </SimpleGrid>
-        </Container>
-      </Modal>
+      {/*The Product details are held within this drawer once the user clicks the item.*/}
+      <Drawer opened={opened} onClose={close} position="bottom" size="100%" withCloseButton={false}>
+        <Drawer.Header>
+          <Drawer.CloseButton>
+            <ActionIcon>
+              {' '}
+              <IconChevronDown />
+            </ActionIcon>
+          </Drawer.CloseButton>
+        </Drawer.Header>
+        {selectedDevice && (
+          <Container>
+            <Title order={1} size="h4" mb={10} color="dimmed" className={classes.productTitle}>
+              {selectedDevice.product.name}
+            </Title>
+            <Container>
+              <SimpleGrid cols={1}>
+                <Grid>
+                  <Grid.Col lg={6}>
+                    <Image
+                      src={`https://static.ui.com/fingerprint/ui/icons/${selectedDevice.icon.id}_${selectedDevice.icon.resolutions[4][0]}x${selectedDevice.icon.resolutions[4][1]}.png`}
+                      height="auto"
+                    />
+                  </Grid.Col>
+                  <Grid.Col lg={6} className={classes.detailContainer}>
+                    <Table className={classes.tableContainer}>
+                      <tbody>
+                        <tr key={selectedDevice.icon.id}>
+                          <td>Product Line</td>
+                          <td>
+                            <Text className={classes.title}>{selectedDevice.line.name}</Text>
+                          </td>
+                        </tr>
+                        <tr key={selectedDevice.icon.id}>
+                          <td>ID</td>
+                          <td>
+                            <Text className={classes.title}>{selectedDevice.line.id}</Text>
+                          </td>
+                        </tr>
+                        <tr key={selectedDevice.icon.id}>
+                          <td>Name</td>
+                          <td>
+                            <Text className={classes.title}>{selectedDevice.product.name}</Text>
+                          </td>
+                        </tr>
+                        <tr key={selectedDevice.icon.id}>
+                          <td>Short name</td>
+                          <td>
+                            <Text className={classes.title}>{selectedDevice.shortnames}</Text>
+                          </td>
+                        </tr>
+                        {selectedDevice?.unifi?.network?.radios?.na?.maxPower && (
+                          <tr key={selectedDevice.icon.id}>
+                            <td>Max Power</td>
+                            <td>
+                              <Text className={classes.title}>
+                                {selectedDevice.unifi.network.radios.na.maxPower}W
+                              </Text>
+                            </td>
+                          </tr>
+                        )}
+                        {selectedDevice?.unifi?.network?.radios?.na?.maxSpeedMegabitsPerSecond && (
+                          <tr key={selectedDevice.icon.id}>
+                            <td>Speed</td>
+                            <td>
+                              <Text className={classes.title}>
+                                {selectedDevice.unifi.network.radios.na.maxSpeedMegabitsPerSecond}{' '}
+                                Mbps
+                              </Text>
+                            </td>
+                          </tr>
+                        )}
+                        {selectedDevice?.unifi?.network?.numberOfPorts && (
+                          <tr key={selectedDevice.icon.id}>
+                            <td>Number of Ports</td>
+                            <td>
+                              <Text className={classes.title}>
+                                {selectedDevice.unifi.network.numberOfPorts}
+                              </Text>
+                            </td>
+                          </tr>
+                        )}
+                      </tbody>
+                    </Table>
+                  </Grid.Col>
+                </Grid>
+              </SimpleGrid>
+            </Container>
+          </Container>
+        )}
+      </Drawer>
     </>
   );
 };

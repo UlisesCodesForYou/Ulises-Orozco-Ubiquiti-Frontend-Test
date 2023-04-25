@@ -17,6 +17,61 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
+  title: {
+    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    fontWeight: 600,
+  },
+
+  imageContainer: {
+    background: '#f6f6f8',
+  },
+
+  nameContainer: {
+    marginTop: '15px',
+  },
+
+  productTitle: {
+    marginLeft: '25%',
+
+    [theme.fn.largerThan('sm')]: {
+      textAlign: 'center',
+      marginLeft: '5%',
+    },
+  },
+
+  drawerContainer: {
+    position: 'fixed',
+    top: '50%',
+    left: '15%',
+    marginTop: '-300px',
+
+    [theme.fn.largerThan('sm')]: {
+      marginTop: '-400px',
+    },
+
+    [theme.fn.largerThan('md')]: {
+      marginTop: '-200px',
+    },
+  },
+
+  detailContainer: {
+    display: 'flex',
+    margin: 'auto',
+  },
+
+  tableContainer: {
+    minWidth: 200,
+    marginRight: 50,
+
+    [theme.fn.largerThan('md')]: {
+      minWidth: 300,
+    },
+
+    [theme.fn.largerThan('sm')]: {
+      minWidth: 500,
+    },
+  },
+
   header: {
     position: 'sticky',
     top: 0,
