@@ -26,4 +26,5 @@ export interface ListInfo {
     shortnames: [
         string
     ],
+    index: number,
 }
