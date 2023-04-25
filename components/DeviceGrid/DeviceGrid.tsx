@@ -1,4 +1,5 @@
 import {
+  ActionIcon,
   Card,
   Container,
   Drawer,
@@ -10,6 +11,7 @@ import {
   Text,
   Title,
 } from '@mantine/core';
+import { IconChevronLeft } from '@tabler/icons-react';
 import { useDisclosure } from '@mantine/hooks';
 import { useState } from 'react';
 import useStyles from './DeviceGrid.styles';
@@ -76,6 +78,14 @@ export const DeviceGrid = (props: DeviceGridProps) => {
 
       {/*The Product details are held within this drawer once the user clicks the item.*/}
       <Drawer opened={opened} onClose={close} position="right" size="100%">
+        <Drawer.Header>
+          <Drawer.CloseButton>
+            <ActionIcon>
+              {' '}
+              <IconChevronLeft />
+            </ActionIcon>
+          </Drawer.CloseButton>
+        </Drawer.Header>
         {selectedDevice && (
           <Container className={classes.drawerContainer}>
             <Title order={1} size="h3" mb={10} color="dimmed" className={classes.productTitle}>
