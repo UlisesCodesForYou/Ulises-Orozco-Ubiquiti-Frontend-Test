@@ -32,9 +32,9 @@ export const DeviceList = (props: DeviceListProps) => {
   const modalOpen = () => open();
 
   //This is the data used to generate the row list.
-  const rows: JSX.Element[] = listData.map((row: ListInfo) => (
+  const rows: JSX.Element[] = listData.map((row: ListInfo, index: number) => (
     <tr
-      key={row.id}
+      key={`${row.icon} + ${row.line.name} + ${index}`}
       onClick={() => {
         setSelectedDevice(row);
         modalOpen();
@@ -99,32 +99,42 @@ export const DeviceList = (props: DeviceListProps) => {
                   <Grid.Col lg={6} className={classes.detailContainer}>
                     <Table className={classes.tableContainer}>
                       <tbody>
-                        <tr key={selectedDevice.icon.id}>
+                        <tr
+                          key={`${selectedDevice.icon} + ${selectedDevice.line.name} + ${selectedDevice.index}`}
+                        >
                           <td>Product Line</td>
                           <td>
                             <Text className={classes.title}>{selectedDevice.line.name}</Text>
                           </td>
                         </tr>
-                        <tr key={selectedDevice.icon.id}>
+                        <tr
+                          key={`${selectedDevice.icon} + ${selectedDevice.line.name} + ${selectedDevice.index}`}
+                        >
                           <td>ID</td>
                           <td>
                             <Text className={classes.title}>{selectedDevice.line.id}</Text>
                           </td>
                         </tr>
-                        <tr key={selectedDevice.icon.id}>
+                        <tr
+                          key={`${selectedDevice.icon} + ${selectedDevice.line.name} + ${selectedDevice.index}`}
+                        >
                           <td>Name</td>
                           <td>
                             <Text className={classes.title}>{selectedDevice.product.name}</Text>
                           </td>
                         </tr>
-                        <tr key={selectedDevice.icon.id}>
+                        <tr
+                          key={`${selectedDevice.icon} + ${selectedDevice.line.name} + ${selectedDevice.index}`}
+                        >
                           <td>Short name</td>
                           <td>
                             <Text className={classes.title}>{selectedDevice.shortnames}</Text>
                           </td>
                         </tr>
                         {selectedDevice?.unifi?.network?.radios?.na?.maxPower && (
-                          <tr key={selectedDevice.icon.id}>
+                          <tr
+                            key={`${selectedDevice.icon} + ${selectedDevice.line.name} + ${selectedDevice.index}`}
+                          >
                             <td>Max Power</td>
                             <td>
                               <Text className={classes.title}>
@@ -134,7 +144,9 @@ export const DeviceList = (props: DeviceListProps) => {
                           </tr>
                         )}
                         {selectedDevice?.unifi?.network?.radios?.na?.maxSpeedMegabitsPerSecond && (
-                          <tr key={selectedDevice.icon.id}>
+                          <tr
+                            key={`${selectedDevice.icon} + ${selectedDevice.line.name} + ${selectedDevice.index}`}
+                          >
                             <td>Speed</td>
                             <td>
                               <Text className={classes.title}>
@@ -145,7 +157,9 @@ export const DeviceList = (props: DeviceListProps) => {
                           </tr>
                         )}
                         {selectedDevice?.unifi?.network?.numberOfPorts && (
-                          <tr key={selectedDevice.icon.id}>
+                          <tr
+                            key={`${selectedDevice.product.name} + ${selectedDevice.line.name} + ${selectedDevice.index}`}
+                          >
                             <td>Number of Ports</td>
                             <td>
                               <Text className={classes.title}>

@@ -32,9 +32,9 @@ export const DeviceGrid = (props: DeviceGridProps) => {
   const drawerOpen = () => open();
 
   //This is the card holds the data tha is displayed in the cards in the scroll area.
-  const grid: JSX.Element[] = gridData.map((item: GridInfo) => (
+  const grid: JSX.Element[] = gridData.map((item: GridInfo, index: number) => (
     <Card
-      key={item.id}
+      key={`${item.icon} + ${item.line.name} +${index}`}
       radius="md"
       className={classes.card}
       component="button"
@@ -87,7 +87,7 @@ export const DeviceGrid = (props: DeviceGridProps) => {
           </Drawer.CloseButton>
         </Drawer.Header>
         {selectedDevice && (
-          <Container className={classes.drawerContainer}>
+          <Container>
             <Title order={1} size="h4" mb={10} color="dimmed" className={classes.productTitle}>
               {selectedDevice.product.name}
             </Title>
@@ -103,32 +103,42 @@ export const DeviceGrid = (props: DeviceGridProps) => {
                   <Grid.Col lg={6} className={classes.detailContainer}>
                     <Table className={classes.tableContainer}>
                       <tbody>
-                        <tr key={selectedDevice.icon.id}>
+                        <tr
+                          key={`${selectedDevice.icon} + ${selectedDevice.line.name} + ${selectedDevice.index}`}
+                        >
                           <td>Product Line</td>
                           <td>
                             <Text className={classes.title}>{selectedDevice.line.name}</Text>
                           </td>
                         </tr>
-                        <tr key={selectedDevice.icon.id}>
+                        <tr
+                          key={`${selectedDevice.icon} + ${selectedDevice.line.name} + ${selectedDevice.index}`}
+                        >
                           <td>ID</td>
                           <td>
                             <Text className={classes.title}>{selectedDevice.line.id}</Text>
                           </td>
                         </tr>
-                        <tr key={selectedDevice.icon.id}>
+                        <tr
+                          key={`${selectedDevice.icon} + ${selectedDevice.line.name} + ${selectedDevice.index}`}
+                        >
                           <td>Name</td>
                           <td>
                             <Text className={classes.title}>{selectedDevice.product.name}</Text>
                           </td>
                         </tr>
-                        <tr key={selectedDevice.icon.id}>
+                        <tr
+                          key={`${selectedDevice.icon} + ${selectedDevice.line.name} + ${selectedDevice.index}`}
+                        >
                           <td>Short name</td>
                           <td>
                             <Text className={classes.title}>{selectedDevice.shortnames}</Text>
                           </td>
                         </tr>
                         {selectedDevice?.unifi?.network?.radios?.na?.maxPower && (
-                          <tr key={selectedDevice.icon.id}>
+                          <tr
+                            key={`${selectedDevice.icon} + ${selectedDevice.line.name} + ${selectedDevice.index}`}
+                          >
                             <td>Max Power</td>
                             <td>
                               <Text className={classes.title}>
@@ -138,7 +148,9 @@ export const DeviceGrid = (props: DeviceGridProps) => {
                           </tr>
                         )}
                         {selectedDevice?.unifi?.network?.radios?.na?.maxSpeedMegabitsPerSecond && (
-                          <tr key={selectedDevice.icon.id}>
+                          <tr
+                            key={`${selectedDevice.icon} + ${selectedDevice.line.name} + ${selectedDevice.index}`}
+                          >
                             <td>Speed</td>
                             <td>
                               <Text className={classes.title}>
@@ -149,7 +161,9 @@ export const DeviceGrid = (props: DeviceGridProps) => {
                           </tr>
                         )}
                         {selectedDevice?.unifi?.network?.numberOfPorts && (
-                          <tr key={selectedDevice.icon.id}>
+                          <tr
+                            key={`${selectedDevice.icon} + ${selectedDevice.line.name} + ${selectedDevice.index}`}
+                          >
                             <td>Number of Ports</td>
                             <td>
                               <Text className={classes.title}>

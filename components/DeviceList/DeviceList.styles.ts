@@ -40,17 +40,8 @@ const useStyles = createStyles((theme) => ({
   },
 
   drawerContainer: {
-    position: 'fixed',
-    top: '50%',
-    left: '15%',
-    marginTop: '-300px',
-
-    [theme.fn.largerThan('sm')]: {
-      marginTop: '-400px',
-    },
-
-    [theme.fn.largerThan('md')]: {
-      marginTop: '-200px',
+    [theme.fn.largerThan('lg')]: {
+      marginRight: '18rem',
     },
   },
 
