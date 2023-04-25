@@ -94,13 +94,13 @@ export const DeviceGrid = (props: DeviceGridProps) => {
             <Container>
               <SimpleGrid cols={2} breakpoints={[{ minWidth: 'sm', cols: 1 }]}>
                 <Grid>
-                  <Grid.Col lg={6}>
+                  <Grid.Col sm={12} md={12} lg={6}>
                     <Image
                       src={`https://static.ui.com/fingerprint/ui/icons/${selectedDevice.icon.id}_${selectedDevice.icon.resolutions[4][0]}x${selectedDevice.icon.resolutions[4][1]}.png`}
                       height="auto"
                     />
                   </Grid.Col>
-                  <Grid.Col lg={6} className={classes.detailContainer}>
+                  <Grid.Col sm={12} md={12} lg={6} className={classes.detailContainer}>
                     <Table sx={{ minWidth: 500 }}>
                       <tbody>
                         <tr key={selectedDevice.icon.id}>
