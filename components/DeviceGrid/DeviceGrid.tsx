@@ -11,9 +11,9 @@ import {
   Text,
   Title,
 } from '@mantine/core';
-import { IconChevronLeft } from '@tabler/icons-react';
 import { useDisclosure } from '@mantine/hooks';
 import { useState } from 'react';
+import { IconChevronDown } from '@tabler/icons';
 import useStyles from './DeviceGrid.styles';
 import { GridInfo } from './DeviceGrid.d';
 
@@ -77,31 +77,31 @@ export const DeviceGrid = (props: DeviceGridProps) => {
       </ScrollArea>
 
       {/*The Product details are held within this drawer once the user clicks the item.*/}
-      <Drawer opened={opened} onClose={close} position="right" size="100%">
+      <Drawer opened={opened} onClose={close} position="bottom" size="100%" withCloseButton={false}>
         <Drawer.Header>
           <Drawer.CloseButton>
             <ActionIcon>
               {' '}
-              <IconChevronLeft />
+              <IconChevronDown />
             </ActionIcon>
           </Drawer.CloseButton>
         </Drawer.Header>
         {selectedDevice && (
           <Container className={classes.drawerContainer}>
-            <Title order={1} size="h3" mb={10} color="dimmed" className={classes.productTitle}>
+            <Title order={1} size="h4" mb={10} color="dimmed" className={classes.productTitle}>
               {selectedDevice.product.name}
             </Title>
             <Container>
-              <SimpleGrid cols={2} breakpoints={[{ minWidth: 'sm', cols: 1 }]}>
+              <SimpleGrid cols={1}>
                 <Grid>
-                  <Grid.Col sm={12} md={12} lg={6}>
+                  <Grid.Col lg={6}>
                     <Image
                       src={`https://static.ui.com/fingerprint/ui/icons/${selectedDevice.icon.id}_${selectedDevice.icon.resolutions[4][0]}x${selectedDevice.icon.resolutions[4][1]}.png`}
                       height="auto"
                     />
                   </Grid.Col>
-                  <Grid.Col sm={12} md={12} lg={6} className={classes.detailContainer}>
-                    <Table sx={{ minWidth: 500 }}>
+                  <Grid.Col lg={6} className={classes.detailContainer}>
+                    <Table className={classes.tableContainer}>
                       <tbody>
                         <tr key={selectedDevice.icon.id}>
                           <td>Product Line</td>
