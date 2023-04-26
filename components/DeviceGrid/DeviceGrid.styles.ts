@@ -2,9 +2,7 @@ import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   card: {
-    // transition: 'transform 150ms ease, box-shadow 150ms ease',
     border: 'solid 2px #ededed',
-    padding: 0,
 
     '&:hover': {
       border: 'solid 2px #00A5E7',
