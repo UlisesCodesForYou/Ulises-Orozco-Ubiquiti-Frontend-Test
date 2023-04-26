@@ -8,13 +8,7 @@ export const FooterLinks = () => {
   const { classes } = useStyles();
 
   const items: JSX.Element[] = footerData.map((link: FooterInfo) => (
-    <Anchor<'a'>
-      color="dimmed"
-      key={link.id}
-      href={link.links.link}
-      onClick={(event) => event.preventDefault()}
-      size="sm"
-    >
+    <Anchor<'a'> color="dimmed" key={link.id} href={link.links.link} size="sm">
       {link.links.label}
     </Anchor>
   ));

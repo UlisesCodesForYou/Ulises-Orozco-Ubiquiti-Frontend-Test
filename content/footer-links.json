@@ -1,43 +1,19 @@
 {
   "footerLinks": [
     {
-      "id": "company",
-      "title": "Company",
+      "id": "gitHub_repo",
+      "title": "GitHub Repo",
       "links": {
-        "label": "Careers",
-        "link": "https://careers.ui.com/"
+        "label": "View this pages GitHub Repo",
+        "link": "https://github.com/UlisesCodesForYou/Ulises-Orozco-Ubiquiti-Frontend-Test"
       }
     },
     {
-      "id": "in_the_news",
-      "title": "In the News",
+      "id": "my_portfolio_page",
+      "title": "My Portfolio Page",
       "links": {
-        "label": "Blog",
-        "link": "https://blog.ui.com/"
-      }
-    },
-    {
-      "id": "training",
-      "title": "Training",
-      "links": {
-        "label": "Courses",
-        "link": "https://www.ui.com/training/"
-      }
-    },
-    {
-      "id": "buy_now",
-      "title": "Buy Now",
-      "links": {
-        "label": "Store",
-        "link": "https://store.ui.com/"
-      }
-    },
-    {
-      "id": "tools",
-      "title": "Tools",
-      "links": {
-        "label": "WiFiman",
-        "link": "https://wifiman.com/"
+        "label": "Ulises Orozco's Portfolio Page",
+        "link": "https://www.ulisesorozco.dev/"
       }
     }
   ]
