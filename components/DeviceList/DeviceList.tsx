@@ -42,7 +42,7 @@ export const DeviceList = (props: DeviceListProps) => {
     >
       <td>
         <Image
-          src={`https://static.ui.com/fingerprint/ui/icons/${row.icon.id}_${row.icon.resolutions[1][0]}x${row.icon.resolutions[1][1]}.png`}
+          src={`https://static.ui.com/fingerprint/ui/icons/${row.icon.id}_${row.icon.resolutions[4][0]}x${row.icon.resolutions[4][1]}.png`}
           alt=""
           width={row.icon.resolutions[1][0]}
           height={row.icon.resolutions[1][1]}
@@ -97,7 +97,7 @@ export const DeviceList = (props: DeviceListProps) => {
                     />
                   </Grid.Col>
                   <Grid.Col lg={6} className={classes.detailContainer}>
-                    <Table className={classes.tableContainer} fontSize="xl">
+                    <Table className={classes.tableContainer} fontSize="lg">
                       <tbody>
                         <tr
                           key={`${selectedDevice.icon} + ${selectedDevice.line.name} + ${selectedDevice.index}`}

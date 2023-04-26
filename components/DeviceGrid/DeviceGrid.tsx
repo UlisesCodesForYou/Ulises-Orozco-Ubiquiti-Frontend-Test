@@ -88,7 +88,7 @@ export const DeviceGrid = (props: DeviceGridProps) => {
         </Drawer.Header>
         {selectedDevice && (
           <Container>
-            <Title order={1} size="h4" mb={10} color="dimmed" align="center">
+            <Title order={1} size="h2" mb={10} color="dimmed" align="center">
               {selectedDevice.product.name}
             </Title>
             <Container className={classes.drawerContainer}>
@@ -101,7 +101,7 @@ export const DeviceGrid = (props: DeviceGridProps) => {
                     />
                   </Grid.Col>
                   <Grid.Col lg={6} className={classes.detailContainer}>
-                    <Table className={classes.tableContainer} fontSize="xl">
+                    <Table className={classes.tableContainer} fontSize="lg">
                       <tbody>
                         <tr
                           key={`${selectedDevice.icon} + ${selectedDevice.line.name} + ${selectedDevice.index}`}
