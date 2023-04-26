@@ -91,7 +91,7 @@ export const DeviceGrid = (props: DeviceGridProps) => {
             <Title order={1} size="h2" mb={10} color="dimmed" align="center">
               {selectedDevice.product.name}
             </Title>
-            <Container className={classes.drawerContainer}>
+            <Container>
               <SimpleGrid cols={1}>
                 <Grid>
                   <Grid.Col lg={6}>
