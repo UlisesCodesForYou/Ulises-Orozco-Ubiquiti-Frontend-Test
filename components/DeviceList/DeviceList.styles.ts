@@ -30,18 +30,10 @@ const useStyles = createStyles((theme) => ({
     marginTop: '15px',
   },
 
-  productTitle: {
-    marginLeft: '25%',
-
-    [theme.fn.largerThan('sm')]: {
-      textAlign: 'center',
-      marginLeft: '5%',
-    },
-  },
-
   drawerContainer: {
     [theme.fn.largerThan('lg')]: {
       marginRight: '18rem',
+      marginTop: '5rem',
     },
   },
 

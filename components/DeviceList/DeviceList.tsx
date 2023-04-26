@@ -83,8 +83,8 @@ export const DeviceList = (props: DeviceListProps) => {
           </Drawer.CloseButton>
         </Drawer.Header>
         {selectedDevice && (
-          <Container>
-            <Title order={1} size="h4" mb={10} color="dimmed" className={classes.productTitle}>
+          <Container className={classes.drawerContainer}>
+            <Title order={1} size="h3" mb={10} color="dimmed" align="center">
               {selectedDevice.product.name}
             </Title>
             <Container>
@@ -97,7 +97,7 @@ export const DeviceList = (props: DeviceListProps) => {
                     />
                   </Grid.Col>
                   <Grid.Col lg={6} className={classes.detailContainer}>
-                    <Table className={classes.tableContainer}>
+                    <Table className={classes.tableContainer} fontSize="xl">
                       <tbody>
                         <tr
                           key={`${selectedDevice.icon} + ${selectedDevice.line.name} + ${selectedDevice.index}`}

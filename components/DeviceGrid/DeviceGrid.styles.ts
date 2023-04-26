@@ -25,27 +25,10 @@ const useStyles = createStyles((theme) => ({
     marginTop: '15px',
   },
 
-  productTitle: {
-    marginLeft: '25%',
-
-    [theme.fn.largerThan('sm')]: {
-      textAlign: 'center',
-      marginLeft: '5%',
-    },
-  },
-
   drawerContainer: {
-    position: 'fixed',
-    top: '50%',
-    left: '15%',
-    marginTop: '-300px',
-
-    [theme.fn.largerThan('sm')]: {
-      marginTop: '-400px',
-    },
-
-    [theme.fn.largerThan('md')]: {
-      marginTop: '-200px',
+    [theme.fn.largerThan('lg')]: {
+      marginRight: '18rem',
+      marginTop: '5rem',
     },
   },
 
