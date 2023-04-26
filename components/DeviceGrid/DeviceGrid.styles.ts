@@ -2,27 +2,31 @@ import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   card: {
-    transition: 'transform 150ms ease, box-shadow 150ms ease',
-    border: 'solid 1px #ededed',
+    // transition: 'transform 150ms ease, box-shadow 150ms ease',
+    border: 'solid 2px #ededed',
+    padding: 0,
 
     '&:hover': {
       transform: 'scale(1)',
       boxShadow: theme.shadows.md,
-      border: 'none',
+      border: 'solid 2px #00A5E7',
     },
   },
 
   title: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 600,
+    textAlign: 'center',
   },
 
   imageContainer: {
     background: '#f6f6f8',
+    backgroundSize: 'cover',
   },
 
   nameContainer: {
     marginTop: '15px',
+    textAlign: 'center',
   },
 
   detailContainer: {
@@ -47,16 +51,6 @@ const useStyles = createStyles((theme) => ({
     height: 600,
     marginTop: -80,
     marginBottom: -30,
-
-    [theme.fn.largerThan('sm')]: {
-      paddingLeft: '5%',
-      paddingRight: '5%',
-    },
-
-    [theme.fn.largerThan('md')]: {
-      paddingLeft: '10%',
-      paddingRight: '10%',
-    },
   },
 }));
 

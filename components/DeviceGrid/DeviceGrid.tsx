@@ -35,19 +35,18 @@ export const DeviceGrid = (props: DeviceGridProps) => {
   const grid: JSX.Element[] = gridData.map((item: GridInfo, index: number) => (
     <Card
       key={`${item.icon} + ${item.line.name} +${index}`}
-      radius="md"
+      radius="lg"
       className={classes.card}
-      component="button"
       onClick={() => {
         setSelectedDevice(item);
         drawerOpen();
       }}
+      p={0}
     >
-      <div className={classes.imageContainer}>
-        <Card.Section>
+      <div>
+        <Card.Section className={classes.imageContainer}>
           <Image
             src={`https://static.ui.com/fingerprint/ui/icons/${item.icon.id}_${item.icon.resolutions[4][0]}x${item.icon.resolutions[4][1]}.png`}
-            height="auto"
           />
         </Card.Section>
       </div>
@@ -65,6 +64,7 @@ export const DeviceGrid = (props: DeviceGridProps) => {
       <ScrollArea className={classes.scrollArea}>
         <Container py="xl">
           <SimpleGrid
+            spacing="lg"
             cols={5}
             breakpoints={[
               { maxWidth: 'sm', cols: 1 },
