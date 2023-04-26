@@ -7,8 +7,6 @@ const useStyles = createStyles((theme) => ({
     padding: 0,
 
     '&:hover': {
-      transform: 'scale(1)',
-      boxShadow: theme.shadows.md,
       border: 'solid 2px #00A5E7',
     },
   },
@@ -47,9 +45,9 @@ const useStyles = createStyles((theme) => ({
   },
 
   scrollArea: {
-    height: 600,
+    height: 800,
     marginTop: -80,
-    marginBottom: -30,
+    marginBottom: -100,
   },
 }));
 

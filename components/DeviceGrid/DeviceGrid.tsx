@@ -62,7 +62,7 @@ export const DeviceGrid = (props: DeviceGridProps) => {
   return (
     <>
       <ScrollArea className={classes.scrollArea}>
-        <Container py="xl">
+        <Container size="xl">
           <SimpleGrid
             spacing="lg"
             cols={5}
