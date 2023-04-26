@@ -21,7 +21,6 @@ const useStyles = createStyles((theme) => ({
 
   imageContainer: {
     background: '#f6f6f8',
-    backgroundSize: 'cover',
   },
 
   nameContainer: {
