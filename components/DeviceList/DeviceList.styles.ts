@@ -2,9 +2,9 @@ import { createStyles, rem } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   scrollArea: {
-    height: 600,
+    height: 800,
     marginTop: -80,
-    marginBottom: -30,
+    marginBottom: -100,
 
     [theme.fn.largerThan('sm')]: {
       paddingLeft: '5%',
