@@ -83,7 +83,7 @@ export const DeviceList = (props: DeviceListProps) => {
           </Drawer.CloseButton>
         </Drawer.Header>
         {selectedDevice && (
-          <Container className={classes.drawerContainer}>
+          <Container>
             <Title order={1} size="h3" mb={10} color="dimmed" align="center">
               {selectedDevice.product.name}
             </Title>

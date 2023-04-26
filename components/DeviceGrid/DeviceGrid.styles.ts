@@ -25,13 +25,6 @@ const useStyles = createStyles((theme) => ({
     marginTop: '15px',
   },
 
-  drawerContainer: {
-    [theme.fn.largerThan('lg')]: {
-      marginRight: '18rem',
-      marginTop: '5rem',
-    },
-  },
-
   detailContainer: {
     display: 'flex',
     margin: 'auto',
