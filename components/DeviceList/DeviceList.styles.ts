@@ -28,6 +28,7 @@ const useStyles = createStyles((theme) => ({
 
   nameContainer: {
     marginTop: '15px',
+    textAlign: 'center',
   },
 
   detailContainer: {
