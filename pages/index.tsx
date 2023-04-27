@@ -75,7 +75,7 @@ export default function HomePage() {
           </ActionIcon>
           <FilterDropdown />
         </Flex>
-        {isGrid ? <DeviceList listData={devices} /> : <DeviceGrid gridData={devices} />}
+        {!isGrid ? <DeviceList listData={devices} /> : <DeviceGrid gridData={devices} />}
       </Container>
     </>
   );

@@ -19,6 +19,11 @@ const useStyles = createStyles((theme) => ({
     background: '#f6f6f8',
   },
 
+  imagePadding: {
+    paddingRight: '2rem',
+    paddingLeft: '2rem',
+  },
+
   nameContainer: {
     marginTop: '15px',
     textAlign: 'center',

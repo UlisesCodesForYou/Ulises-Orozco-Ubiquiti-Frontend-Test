@@ -43,17 +43,18 @@ export const DeviceGrid = (props: DeviceGridProps) => {
       }}
       p={0}
     >
-      <div>
+      <Container>
         <Card.Section className={classes.imageContainer}>
           <Image
+            className={classes.imagePadding}
             src={`https://static.ui.com/fingerprint/ui/icons/${item.icon.id}_${item.icon.resolutions[4][0]}x${item.icon.resolutions[4][1]}.png`}
           />
         </Card.Section>
-      </div>
-      <Text size="md" transform="uppercase" weight={700} className={classes.nameContainer}>
+      </Container>
+      <Text size="md" transform="uppercase" weight={700} className={classes.nameContainer} mt={25}>
         {item.product.name}
       </Text>
-      <Text className={classes.title} mt={5} color="dimmed">
+      <Text className={classes.title} mt={10} mb={10} color="dimmed">
         {item.line.name}
       </Text>
     </Card>
@@ -62,7 +63,7 @@ export const DeviceGrid = (props: DeviceGridProps) => {
   return (
     <>
       <ScrollArea className={classes.scrollArea}>
-        <Container size="xl">
+        <Container size="md">
           <SimpleGrid
             spacing="lg"
             cols={5}

@@ -1,11 +1,6 @@
 {
   "navBarInfo": [
     {
-      "id": "devices",
-      "path": "/devices",
-      "label": "Devices"
-    },
-    {
       "id": "ulises_orozco",
       "path": "/pricing",
       "label": "Ulises Orozco"
