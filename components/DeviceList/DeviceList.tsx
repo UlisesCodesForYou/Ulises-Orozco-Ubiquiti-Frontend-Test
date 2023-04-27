@@ -2,6 +2,7 @@ import { useState } from 'react';
 import {
   ActionIcon,
   Container,
+  Center,
   Drawer,
   Grid,
   Image,
@@ -73,7 +74,14 @@ export const DeviceList = (props: DeviceListProps) => {
       </ScrollArea>
 
       {/*The Product details are held within this drawer once the user clicks the item.*/}
-      <Drawer opened={opened} onClose={close} position="bottom" size="100%" withCloseButton={false}>
+      <Drawer
+        opened={opened}
+        onClose={close}
+        position="bottom"
+        size="100%"
+        withCloseButton={false}
+        closeButtonProps={{ 'aria-label': 'Close modal' }}
+      >
         <Drawer.Header>
           <Drawer.CloseButton>
             <ActionIcon>
@@ -87,7 +95,7 @@ export const DeviceList = (props: DeviceListProps) => {
             <Title order={1} size="h3" mb={10} color="dimmed" align="center">
               {selectedDevice.product.name}
             </Title>
-            <Container>
+            <Center>
               <SimpleGrid cols={1}>
                 <Grid>
                   <Grid.Col lg={6}>
@@ -173,7 +181,7 @@ export const DeviceList = (props: DeviceListProps) => {
                   </Grid.Col>
                 </Grid>
               </SimpleGrid>
-            </Container>
+            </Center>
           </Container>
         )}
       </Drawer>

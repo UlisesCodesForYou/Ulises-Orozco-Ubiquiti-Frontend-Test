@@ -67,10 +67,10 @@ export default function HomePage() {
           m={120}
           sx={marginAdjuster}
         >
-          <ActionIcon onClick={() => toggle()} color="blue">
+          <ActionIcon onClick={() => toggle()} color="blue" aria-label="Grid Layout">
             <IconLayoutGrid />
           </ActionIcon>
-          <ActionIcon onClick={() => toggle()} color="blue">
+          <ActionIcon onClick={() => toggle()} color="blue" aria-label="List Layout">
             <IconList />
           </ActionIcon>
           <FilterDropdown />
