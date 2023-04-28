@@ -45,8 +45,8 @@ export const DeviceList = (props: DeviceListProps) => {
         <Image
           src={`https://static.ui.com/fingerprint/ui/icons/${row.icon.id}_${row.icon.resolutions[4][0]}x${row.icon.resolutions[4][1]}.png`}
           alt=""
-          width={row.icon.resolutions[1][0]}
-          height={row.icon.resolutions[1][1]}
+          width={60}
+          height={60}
         />
       </td>
       <td>{row.line.name}</td>
