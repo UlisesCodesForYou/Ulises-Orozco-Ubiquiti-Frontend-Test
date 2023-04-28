@@ -2,7 +2,6 @@ import { useState } from 'react';
 import {
   ActionIcon,
   Center,
-  Container,
   Drawer,
   Grid,
   Image,
@@ -108,7 +107,7 @@ export const DeviceList = (props: DeviceListProps) => {
                     </Center>
                   </Grid.Col>
                   <Grid.Col lg={6} className={classes.detailContainer}>
-                    <Table className={classes.tableContainer} fontSize="lg">
+                    <Table className={classes.tableContainer} fontSize="lg" verticalSpacing="sm">
                       <tbody>
                         <tr
                           key={`${selectedDevice.icon} + ${selectedDevice.line.name} + ${selectedDevice.index}`}

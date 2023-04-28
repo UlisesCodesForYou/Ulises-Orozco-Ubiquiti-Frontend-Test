@@ -106,7 +106,7 @@ export const DeviceGrid = (props: DeviceGridProps) => {
                     </Center>
                   </Grid.Col>
                   <Grid.Col lg={6} className={classes.detailContainer}>
-                    <Table className={classes.tableContainer} fontSize="lg">
+                    <Table className={classes.tableContainer} fontSize="lg" verticalSpacing="sm">
                       <tbody>
                         <tr
                           key={`${selectedDevice.icon} + ${selectedDevice.line.name} + ${selectedDevice.index}`}
