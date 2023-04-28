@@ -38,12 +38,12 @@ const useStyles = createStyles((theme) => ({
     minWidth: 200,
     marginRight: 50,
 
-    [theme.fn.largerThan('md')]: {
-      minWidth: 300,
-    },
-
     [theme.fn.largerThan('sm')]: {
       minWidth: 500,
+    },
+
+    [theme.fn.largerThan('md')]: {
+      minWidth: 300,
     },
   },
 

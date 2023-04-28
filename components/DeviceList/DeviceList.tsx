@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import {
   ActionIcon,
-  Container,
   Center,
+  Container,
   Drawer,
   Grid,
   Image,
@@ -91,18 +91,21 @@ export const DeviceList = (props: DeviceListProps) => {
           </Drawer.CloseButton>
         </Drawer.Header>
         {selectedDevice && (
-          <Container>
+          <div>
             <Title order={1} size="h3" mb={10} color="dimmed" align="center">
               {selectedDevice.product.name}
             </Title>
-            <Center>
+            <div>
               <SimpleGrid cols={1}>
                 <Grid>
                   <Grid.Col lg={6}>
-                    <Image
-                      src={`https://static.ui.com/fingerprint/ui/icons/${selectedDevice.icon.id}_${selectedDevice.icon.resolutions[4][0]}x${selectedDevice.icon.resolutions[4][1]}.png`}
-                      height="auto"
-                    />
+                    <Center>
+                      <Image
+                        src={`https://static.ui.com/fingerprint/ui/icons/${selectedDevice.icon.id}_${selectedDevice.icon.resolutions[4][0]}x${selectedDevice.icon.resolutions[4][1]}.png`}
+                        width={450}
+                        height={450}
+                      />
+                    </Center>
                   </Grid.Col>
                   <Grid.Col lg={6} className={classes.detailContainer}>
                     <Table className={classes.tableContainer} fontSize="lg">
@@ -181,8 +184,8 @@ export const DeviceList = (props: DeviceListProps) => {
                   </Grid.Col>
                 </Grid>
               </SimpleGrid>
-            </Center>
-          </Container>
+            </div>
+          </div>
         )}
       </Drawer>
     </>

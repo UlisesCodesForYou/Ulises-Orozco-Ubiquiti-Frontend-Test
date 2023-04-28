@@ -1,6 +1,7 @@
 import {
   ActionIcon,
   Card,
+  Center,
   Container,
   Drawer,
   Grid,
@@ -88,18 +89,21 @@ export const DeviceGrid = (props: DeviceGridProps) => {
           </Drawer.CloseButton>
         </Drawer.Header>
         {selectedDevice && (
-          <Container>
+          <div>
             <Title order={1} size="h2" mb={10} color="dimmed" align="center">
               {selectedDevice.product.name}
             </Title>
-            <Container>
+            <div>
               <SimpleGrid cols={1}>
                 <Grid>
                   <Grid.Col lg={6}>
-                    <Image
-                      src={`https://static.ui.com/fingerprint/ui/icons/${selectedDevice.icon.id}_${selectedDevice.icon.resolutions[4][0]}x${selectedDevice.icon.resolutions[4][1]}.png`}
-                      height="auto"
-                    />
+                    <Center>
+                      <Image
+                        src={`https://static.ui.com/fingerprint/ui/icons/${selectedDevice.icon.id}_${selectedDevice.icon.resolutions[4][0]}x${selectedDevice.icon.resolutions[4][1]}.png`}
+                        width={450}
+                        height={450}
+                      />
+                    </Center>
                   </Grid.Col>
                   <Grid.Col lg={6} className={classes.detailContainer}>
                     <Table className={classes.tableContainer} fontSize="lg">
@@ -178,8 +182,8 @@ export const DeviceGrid = (props: DeviceGridProps) => {
                   </Grid.Col>
                 </Grid>
               </SimpleGrid>
-            </Container>
-          </Container>
+            </div>
+          </div>
         )}
       </Drawer>
     </>
