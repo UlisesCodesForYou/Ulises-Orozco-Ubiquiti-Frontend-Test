@@ -19,8 +19,10 @@ const useStyles = createStyles((theme) => ({
   },
 
   links: {
-    [theme.fn.smallerThan('xs')]: {
-      marginTop: theme.spacing.md,
+    [theme.fn.smallerThan('sm')]: {
+      marginTop: theme.spacing.lg,
+      display: 'flex',
+      placeContent: 'center',
     },
   },
 }));

@@ -1,7 +1,7 @@
 export interface GridInfo {
   id: string;
   product: {
-    name: string;
+    name: string; 
   };
   line: {
     id: string;
